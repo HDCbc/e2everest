@@ -31,6 +31,7 @@ Exported content should be E2E-DTC 1.4 compliant</description>
 		<everest.version>1.1.0</everest.version>
 		<spring.version>4.1.6.RELEASE</spring.version>
 		<hibernate.version>4.3.9.Final</hibernate.version>
+		<skipTests>true</skipTests>
 	</properties>
 	<repositories>
 		<!-- MARC-HI Everest Framework -->
