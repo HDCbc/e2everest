@@ -39,7 +39,7 @@ public class Dxresearch implements Serializable {
 	@Column(name="coding_system")
 	private String codingSystem;
 	private Byte association;
-	private String providerNo;
+	// private String providerNo;
 
 	public Dxresearch() {
 		super();
@@ -109,11 +109,11 @@ public class Dxresearch implements Serializable {
 		this.association = association;
 	}
 
-	public String getProviderNo() {
-		return providerNo;
-	}
+	// public String getProviderNo() {
+	// 	return providerNo;
+	// }
 
-	public void setProviderNo(String providerNo) {
-		this.providerNo = providerNo;
-	}
+	// public void setProviderNo(String providerNo) {
+	// 	this.providerNo = providerNo;
+	// }
 }
