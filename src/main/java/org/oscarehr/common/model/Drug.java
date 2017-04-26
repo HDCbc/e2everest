@@ -38,12 +38,12 @@ public class Drug implements Serializable {
 	@Column(name = "written_date")
 	@Temporal(TemporalType.DATE)
 	private Date writtenDate = null;
-	@Column(name = "pickup_datetime")
+	@Column(name = "pickup_datetime", columnDefinition="datetime")
 	@Temporal(TemporalType.DATE)
 	private Date pickupDateTime;
 	@Column(name = "BN")
 	private String brandName = null;
-	@Column(name = "GCN_SEQNO")
+	@Column(name = "GCN_SEQNO", columnDefinition="decimal")
 	private Integer gcnSeqNo = 0;
 	private String customName = null;
 	@Column(name = "takemin")
@@ -53,10 +53,10 @@ public class Drug implements Serializable {
 	@Column(name = "freqcode")
 	private String freqCode = null;
 	private String duration = null;
-	@Column(name = "durunit")
+	@Column(name = "durunit", columnDefinition="char")
 	private String durUnit = null;
 	private String quantity = null;
-	@Column(name = "`repeat`")
+	@Column(name = "`repeat`", columnDefinition="tinyint")
 	private Integer repeat = 0;
 	@Column(name = "last_refill_date")
 	@Temporal(TemporalType.DATE)
@@ -64,7 +64,9 @@ public class Drug implements Serializable {
 	@Column(name = "nosubs")
 	private Boolean noSubs;
 	private Boolean prn;
+	@Column(columnDefinition="text")
 	private String special = null;
+	@Column(columnDefinition="text")
 	private String special_instruction = null;
 	private Boolean archived;
 	@Column(name = "GN")
@@ -83,6 +85,7 @@ public class Drug implements Serializable {
 	@Column(name = "create_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createDate = new Date();
+	@Column(columnDefinition="text")
 	private String dosage = null;
 	@Column(name = "custom_instructions")
 	private Boolean customInstructions;

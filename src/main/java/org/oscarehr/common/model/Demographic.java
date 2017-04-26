@@ -3,6 +3,7 @@ package org.oscarehr.common.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,9 +23,12 @@ public class Demographic implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "demographic_no")
 	private Integer demographicNo;
 	private String title;
+	@Column(name = "last_name")
 	private String lastName;
+	@Column(name = "first_name")
 	private String firstName;
 	private String address;
 	private String city;
@@ -36,39 +40,61 @@ public class Demographic implements Serializable {
 
 	private String myOscarUserName;
 
+	@Column(name = "year_of_birth", columnDefinition = "char")
 	private String yearOfBirth;
+	@Column(name = "month_of_birth", columnDefinition = "char")
 	private String monthOfBirth;
+	@Column(name = "date_of_birth", columnDefinition = "char")
 	private String dateOfBirth;
 	private String hin;
+	@Column(columnDefinition="char")
 	private String ver;
 
+	@Column(name="roster_status")
 	private String rosterStatus;
 	@Temporal(TemporalType.DATE)
+	@Column(name="roster_date")
 	private Date rosterDate;
 	@Temporal(TemporalType.DATE)
+	@Column(name="roster_termination_date")
 	private Date rosterTerminationDate;
+	@Column(name="roster_termination_reason")
 	private String rosterTerminationReason;
 
+	@Column(name="patient_status")
 	private String patientStatus;
 	@Temporal(TemporalType.DATE)
+	@Column(name="patient_status_date")
 	private Date patientStatusDate;
 	@Temporal(TemporalType.DATE)
+	@Column(name = "date_joined")
 	private Date dateJoined;
+	@Column(name = "chart_no")
 	private String chartNo;
+	@Column(name="official_lang")
 	private String officialLanguage;
+	@Column(name="spoken_lang")
 	private String spokenLanguage;
+	@Column(name="provider_no")
 	private String providerNo;
 
+	@Column(columnDefinition="char")
 	private String sex;
 	@Temporal(TemporalType.DATE)
+	@Column(name = "end_date")
 	private Date endDate;
 	@Temporal(TemporalType.DATE)
+	@Column(name = "eff_date")
 	private Date effDate;
+	@Column(name = "pcn_indicator")
 	private String pcnIndicator;
+	@Column(name = "hc_type")
 	private String hcType;
 	@Temporal(TemporalType.DATE)
+	@Column(name = "hc_renew_date")
 	private Date hcRenewDate;
 
+	@Column(name = "family_doctor")
 	private String familyDoctor;
 	private String alias;
 	private String previousAddress;
@@ -76,12 +102,13 @@ public class Demographic implements Serializable {
 	private String sourceOfIncome;
 	private String citizenship;
 	private String sin;
+	@Column(name = "country_of_origin", columnDefinition="char")
 	private String countryOfOrigin;
 	private String newsletter;
 	private String anonymous = null;
 
 	private String lastUpdateUser = null;
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastUpdateDate = null;
 
 	public Demographic() {

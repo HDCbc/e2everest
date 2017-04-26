@@ -24,6 +24,7 @@ public class MeasurementsExt implements Serializable {
 	@Column(name="measurement_id")
 	private Integer measurementId = null;
 	private String keyVal = null;
+	@Column(columnDefinition="text")
 	private String val = null;
 
 	public MeasurementsExt() {

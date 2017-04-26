@@ -24,6 +24,7 @@ public class PreventionExt implements Serializable {
 	@Column(name="prevention_id")
 	private Integer preventionId = null;
 	private String keyVal = null;
+	@Column(columnDefinition="text")
 	private String val = null;
 
 	public PreventionExt() {

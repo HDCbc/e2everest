@@ -15,7 +15,7 @@ public class CaseManagementNoteExtDao extends AbstractDao<CaseManagementNoteExt>
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<CaseManagementNoteExt> getExtByNote(Long noteId) {
+	public List<CaseManagementNoteExt> getExtByNote(Integer noteId) {
 		String sqlCommand = "SELECT x FROM " + modelClass.getName() + " x WHERE x.noteId=?1 ORDER BY x.id DESC";
 		Query query = entityManager.createQuery(sqlCommand);
 		query.setParameter(1, noteId);

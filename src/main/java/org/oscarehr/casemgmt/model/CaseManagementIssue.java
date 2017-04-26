@@ -22,9 +22,9 @@ public class CaseManagementIssue implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String demographic_no;
-	private Long issue_id;
+	private Integer issue_id;
 	private Boolean acute;
 	private Boolean certain;
 	private Boolean major;
@@ -38,11 +38,11 @@ public class CaseManagementIssue implements Serializable {
 		super();
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -54,11 +54,11 @@ public class CaseManagementIssue implements Serializable {
 		this.demographic_no = demographic_no;
 	}
 
-	public Long getIssue_id() {
+	public Integer getIssue_id() {
 		return issue_id;
 	}
 
-	public void setIssue_id(Long issue_id) {
+	public void setIssue_id(Integer issue_id) {
 		this.issue_id = issue_id;
 	}
 

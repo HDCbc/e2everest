@@ -36,12 +36,13 @@ public class Clinic implements Serializable {
 	private String clinicFax;
 	@Column(name="clinic_location_code")
 	private String clinicLocationCode;
+	@Column(columnDefinition="char")
 	private String status;
 	@Column(name="clinic_province")
 	private String clinicProvince;
-	@Column(name="clinic_delim_phone")
+	@Column(name="clinic_delim_phone", columnDefinition="text")
 	private String clinicDelimPhone;
-	@Column(name="clinic_delim_fax")
+	@Column(name="clinic_delim_fax", columnDefinition="text")
 	private String clinicDelimFax;
 
 	public Clinic() {

@@ -43,7 +43,7 @@ public class Prevention implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date nextDate = null;
 	private Character never = '0';
-	@Column(name = "creator")
+	@Column(name = "creator", columnDefinition="int")
 	private String creatorProviderNo = null;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastUpdateDate = null;

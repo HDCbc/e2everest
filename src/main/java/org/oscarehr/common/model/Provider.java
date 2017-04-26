@@ -3,6 +3,7 @@ package org.oscarehr.common.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,34 +24,48 @@ public class Provider implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="provider_no", columnDefinition="varchar")
 	private Integer providerNo;
+	@Column(name="last_name")
 	private String lastName;
+	@Column(name="first_name")
 	private String firstName;
+	@Column(name="provider_type")
 	private String providerType;
 	private String specialty;
 	private String team;
+	@Column(columnDefinition="char")
 	private String sex;
 	@Temporal(TemporalType.DATE)
 	private Date dob;
 	private String address;
 	private String phone;
+	@Column(name="work_phone")
 	private String workPhone;
 
+	@Column(name="ohip_no")
 	private String ohipNo;
+	@Column(name="rma_no")
 	private String rmaNo;
+	@Column(name="billing_no")
 	private String billingNo;
+	@Column(name="hso_no")
 	private String hsoNo;
+	@Column(columnDefinition="char")
 	private String status; // "1"=active, "0"=inactive
+	@Column(columnDefinition="text")
 	private String comments;
+	@Column(name="provider_activity",columnDefinition="char")
 	private String providerActivity;
 	private String practitionerNo;
 
 	private String email;
 	private String title;
 	private String lastUpdateUser;
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastUpdateDate = new Date();
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="signed_confidentiality")
 	private Date SignedConfidentiality;
 
 	public Provider() {

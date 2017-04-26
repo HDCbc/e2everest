@@ -38,6 +38,7 @@ public class Dxresearch implements Serializable {
 	private String dxresearchCode;
 	@Column(name="coding_system")
 	private String codingSystem;
+	@Column(columnDefinition="bit")
 	private Byte association;
 	// private String providerNo;
 

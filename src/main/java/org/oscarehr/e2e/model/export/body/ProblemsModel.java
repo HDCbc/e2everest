@@ -14,7 +14,7 @@ import org.marc.everest.rmim.uv.cdar2.pocd_mt000040uv.EntryRelationship;
 import org.marc.everest.rmim.uv.cdar2.vocabulary.ActStatus;
 import org.oscarehr.common.model.Dxresearch;
 import org.oscarehr.e2e.constant.Constants;
-import org.oscarehr.e2e.model.export.template.AuthorParticipationModel;
+// import org.oscarehr.e2e.model.export.template.AuthorParticipationModel;
 import org.oscarehr.e2e.model.export.template.observation.DateObservationModel;
 import org.oscarehr.e2e.model.export.template.observation.SecondaryCodeICD9ObservationModel;
 import org.oscarehr.e2e.util.EverestUtils;
@@ -135,7 +135,7 @@ public class ProblemsModel {
 
 	private void setAuthor() {
 		authors = new ArrayList<Author>();
-		authors.add(new AuthorParticipationModel(problem.getProviderNo()).getAuthor(problem.getUpdateDate()));
+		// authors.add(new AuthorParticipationModel(problem.getProviderNo()).getAuthor(problem.getUpdateDate()));
 	}
 
 	public EntryRelationship getSecondaryCodeICD9() {

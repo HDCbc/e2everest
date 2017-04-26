@@ -40,24 +40,26 @@ public class Allergy implements Serializable {
 	private Integer agcsp;
 	@Column(name = "AGCCS")
 	private Integer agccs;
-	@Column(name = "TYPECODE")
+	@Column(name = "TYPECODE", columnDefinition = "tinyint")
 	private Integer typeCode;
+	@Column(name = "reaction", columnDefinition = "text")
 	private String reaction;
 	@Column(name = "drugref_id")
 	private String drugrefId;
+	@Column(name = "archived", columnDefinition = "char")
 	private Boolean archived = false;
 	@Column(name = "start_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date startDate;
-	@Column(name = "age_of_onset")
+	@Column(name = "age_of_onset", columnDefinition = "char")
 	private String ageOfOnset;
-	@Column(name = "severity_of_reaction")
+	@Column(name = "severity_of_reaction", columnDefinition = "char")
 	private String severityOfReaction;
-	@Column(name = "onset_of_reaction")
+	@Column(name = "onset_of_reaction", columnDefinition = "char")
 	private String onsetOfReaction;
 	@Column(name = "regional_identifier")
 	private String regionalIdentifier;
-	@Column(name = "life_stage")
+	@Column(name = "life_stage", columnDefinition = "char")
 	private String lifeStage;
 	private Integer position = 0;
 	@Temporal(TemporalType.TIMESTAMP)

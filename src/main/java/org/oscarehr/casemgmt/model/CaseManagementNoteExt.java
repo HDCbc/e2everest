@@ -35,11 +35,13 @@ public class CaseManagementNoteExt implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(columnDefinition="int")
 	private Long id;
-	@Column(name="note_id")
+	@Column(name="note_id", columnDefinition="int")
 	private Long noteId;
 	@Column(name="key_val")
 	private String keyVal;
+	@Column(columnDefinition="text")
 	private String value;
 	@Column(name="date_value")
 	@Temporal(TemporalType.DATE)

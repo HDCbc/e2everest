@@ -24,15 +24,16 @@ public class CaseManagementNote implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="note_id")
-	private Long id;
+	private Integer id;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date update_date;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date observation_date;
+	@Column(columnDefinition = "int")
 	private String demographic_no;
 	@Column(name="provider_no")
 	private String providerNo;
-	@Column(length=8192)
+	@Column(length=8192, columnDefinition="mediumtext")
 	private String note;
 	private Boolean signed = false;
 	@Column(name="include_issue_innote")
@@ -43,12 +44,14 @@ public class CaseManagementNote implements Serializable {
 	private String program_no;
 	private String reporter_caisi_role;
 	private String reporter_program_team;
-	@Column(length=8192)
+	@Column(length=8192, columnDefinition="mediumtext")
 	private String history;
 	private String password;
+	@Column(columnDefinition="char")
 	private Boolean locked;
 	private Boolean archived;
 	private Integer position = 0;
+	@Column(columnDefinition="char")
 	private String uuid;
 	private Integer appointmentNo;
 	private Integer hourOfEncounterTime;
@@ -60,11 +63,11 @@ public class CaseManagementNote implements Serializable {
 		super();
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

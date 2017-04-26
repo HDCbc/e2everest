@@ -102,16 +102,16 @@ public class Mappings {
 	}
 
 	// Mock issueId mapping
-	public static final Map<IssueCodes, Long> issueId;
+	public static final Map<IssueCodes, Integer> issueId;
 	static {
-		Map<IssueCodes, Long> map = new HashMap<IssueCodes, Long>();
-		map.put(Constants.IssueCodes.OMeds, 65L);
-		map.put(Constants.IssueCodes.SocHistory, 66L);
-		map.put(Constants.IssueCodes.MedHistory, 67L);
-		map.put(Constants.IssueCodes.Concerns, 68L);
-		map.put(Constants.IssueCodes.Reminders, 69L);
-		map.put(Constants.IssueCodes.FamHistory, 70L);
-		map.put(Constants.IssueCodes.RiskFactors, 71L);
+		Map<IssueCodes, Integer> map = new HashMap<IssueCodes, Integer>();
+		map.put(Constants.IssueCodes.OMeds, 65);
+		map.put(Constants.IssueCodes.SocHistory, 66);
+		map.put(Constants.IssueCodes.MedHistory, 67);
+		map.put(Constants.IssueCodes.Concerns, 68);
+		map.put(Constants.IssueCodes.Reminders, 69);
+		map.put(Constants.IssueCodes.FamHistory, 70);
+		map.put(Constants.IssueCodes.RiskFactors, 71);
 		issueId = Collections.unmodifiableMap(map);
 	}
 

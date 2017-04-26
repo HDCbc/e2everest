@@ -215,6 +215,6 @@ public class Constants {
 		public static final Integer VALID_MEASUREMENT = 2;
 		public static final Integer VALID_PREVENTION = 1;
 		public static final Integer VALID_PROVIDER = 999998;
-		public static final Long VALID_FAMILY_HISTORY = 7L;
+		public static final Integer VALID_FAMILY_HISTORY = 7;
 	}
 }
