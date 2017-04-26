@@ -1,7 +1,7 @@
 package org.oscarehr.common.model;
 
 import java.io.Serializable;
-import java.util.Date;
+// import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+// import javax.persistence.Temporal;
+// import javax.persistence.TemporalType;
 
 /**
  * Entity implementation class for Entity: PatientLabRouting
@@ -26,14 +26,14 @@ public class PatientLabRouting implements Serializable {
 	private Integer id;
 	@Column(name = "lab_no")
 	private Integer labNo;
-	@Column(name = "lab_type")
+	@Column(name = "lab_type", columnDefinition="char")
 	private String labType;
 	@Column(name = "demographic_no")
 	private Integer demographicNo;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dateModified = new Date();
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date created = new Date();
+	// @Temporal(TemporalType.TIMESTAMP)
+	// private Date dateModified = new Date();
+	// @Temporal(TemporalType.TIMESTAMP)
+	// private Date created = new Date();
 
 	public PatientLabRouting() {
 		super();
@@ -71,19 +71,19 @@ public class PatientLabRouting implements Serializable {
 		this.demographicNo = demographicNo;
 	}
 
-	public Date getDateModified() {
-		return dateModified;
-	}
+	// public Date getDateModified() {
+	// 	return dateModified;
+	// }
+	//
+	// public void setDateModified(Date dateModified) {
+	// 	this.dateModified = dateModified;
+	// }
 
-	public void setDateModified(Date dateModified) {
-		this.dateModified = dateModified;
-	}
-
-	public Date getCreated() {
-		return created;
-	}
-
-	public void setCreated(Date created) {
-		this.created = created;
-	}
+	// public Date getCreated() {
+	// 	return created;
+	// }
+	//
+	// public void setCreated(Date created) {
+	// 	this.created = created;
+	// }
 }
