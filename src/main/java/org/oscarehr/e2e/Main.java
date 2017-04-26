@@ -1,9 +1,22 @@
 package org.oscarehr.e2e;
 
+import org.oscarehr.common.dao.DemographicDaoExport;
+
 import org.marc.everest.rmim.uv.cdar2.pocd_mt000040uv.ClinicalDocument;
 import org.oscarehr.e2e.constant.Constants;
 import org.oscarehr.e2e.director.E2ECreator;
 import org.oscarehr.e2e.util.EverestUtils;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.ByteArrayBody;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.util.List;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 	Main() {
@@ -11,15 +24,41 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		Integer demographicNo = Constants.Runtime.VALID_DEMOGRAPHIC;
 
-		// Populate Clinical Document
-		ClinicalDocument clinicalDocument = E2ECreator.createEmrConversionDocument(demographicNo);
+		ApplicationContext context = new ClassPathXmlApplicationContext(Constants.Runtime.SPRING_APPLICATION_CONTEXT);
+		DemographicDaoExport demographicsDaoExport = context.getBean(DemographicDaoExport.class);
 
-		// Output Clinical Document as String
-		String output = EverestUtils.generateDocumentToString(clinicalDocument, true);
-		if(!EverestUtils.isNullorEmptyorWhitespace(output)) {
-			System.out.println(output);
+		// Patient demographic numbers and two
+		List<Integer> demographicNoList = demographicsDaoExport.getDemographicNumbers();
+
+		for (Integer demographicNo : demographicNoList) {
+
+			// Populate Clinical Document
+			ClinicalDocument clinicalDocument = E2ECreator.createEmrConversionDocument(demographicNo);
+
+			// Output Clinical Document as String
+			String output = EverestUtils.generateDocumentToString(clinicalDocument, true);
+			if(!EverestUtils.isNullorEmptyorWhitespace(output)) {
+
+				final String e2eUrl = "http://localhost:3001/records/create";
+
+				HttpClient httpClient = new DefaultHttpClient();
+				HttpPost httpPost = new HttpPost( e2eUrl );
+
+				StringBuilder sbFile = new StringBuilder( 255 );
+				sbFile.append( "Record_1234567890" ).append( ".xml" );
+				ByteArrayBody body = new ByteArrayBody( output.getBytes(), "text/xml", sbFile.toString());
+				MultipartEntity reqEntity = new MultipartEntity();
+				reqEntity.addPart( "content", body );
+				httpPost.setEntity( reqEntity );
+
+				try{
+					HttpResponse response = httpClient.execute( httpPost );
+				}
+				catch( Exception ex ){
+					System.out.println( ex );
+				}
+			}
 		}
 	}
 }
