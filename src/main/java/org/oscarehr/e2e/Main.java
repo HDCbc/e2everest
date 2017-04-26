@@ -30,6 +30,8 @@ public class Main {
 
 		// Patient demographic numbers and two
 		List<Integer> demographicNoList = demographicsDaoExport.getDemographicNumbers();
+		int responseSuccess = 0;
+		int responseFail = 0;
 
 		for (Integer demographicNo : demographicNoList) {
 
@@ -54,11 +56,27 @@ public class Main {
 
 				try{
 					HttpResponse response = httpClient.execute( httpPost );
+					if( response != null ){
+						int responseCode = response.getStatusLine().getStatusCode();
+
+						if( responseCode == 201 ){
+							responseSuccess++;
+							System.out.print( "." );
+						}
+						else{
+							responseFail++;
+							System.out.println( response );
+						}
+					}
 				}
 				catch( Exception ex ){
 					System.out.println( ex );
 				}
 			}
 		}
+		System.out.println( "" );
+		System.out.println( "Pass:  "+ responseSuccess );
+		System.out.println( "Fail:  "+ responseFail );
+		System.out.println( "Total: "+ demographicNoList.size() );
 	}
 }
