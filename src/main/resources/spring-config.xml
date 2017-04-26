@@ -14,11 +14,11 @@
 	<!-- DataSource -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:hsqldb:mem:db/e2everestDB;sql.syntax_mys=true" />
-		<property name="username" value="e2everest" />
-		<property name="password" value="" />
+			value="jdbc:mysql://localhost:3306/oscar_12_1?verifyServerCertificate=false&amp;useSSL=true" />
+		<property name="username" value="root" />
+		<property name="password" value="superInsecure" />
 	</bean>
 	<!-- JPA -->
 	<bean id="entityManagerFactory"
@@ -27,11 +27,10 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">false</prop>
 				<prop key="hibernate.format_sql">false</prop>
-				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
-				<prop key="hibernate.hbm2ddl.import_files">import.sql</prop>
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>
 			</props>
 		</property>
 	</bean>
