@@ -42,7 +42,7 @@ public class Main {
 			String output = EverestUtils.generateDocumentToString(clinicalDocument, true);
 			if(!EverestUtils.isNullorEmptyorWhitespace(output)) {
 
-				final String e2eUrl = "http://localhost:3001/records/create";
+				final String e2eUrl = "http://gateway:3001/records/create";
 
 				HttpClient httpClient = new DefaultHttpClient();
 				HttpPost httpPost = new HttpPost( e2eUrl );
